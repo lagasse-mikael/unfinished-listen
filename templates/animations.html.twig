@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}debug - listen 🔊{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h1 id="header_status" style="text-align:center;font-size:70px" class="m-2">listen. 🔊 - DEBUG ⚠️</h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-7 container">
+        {% set albumImageURL = trackInfos['album']['images'][0]["url"] %}
+        <div class="row" style="margin-left:30px">
+            <h4><img width="30px" style="vertical-align:text-top" src="https://i.scdn.co/image/ab6775700000ee856d6ccdcf996780a5a148b7cd"/> <a href="">@lagmik_</a> thinks you should listen to :</h4>
+        </div>
+            <userPost class="row pt-3" style="margin:auto">
+                <img class="col-2" style="margin-left:-7px;width:160px !important;height:160px !important;padding:0px !important" src="{{trackInfos['album']['images'][0]["url"]}}"/>
+                <div class="col-4" style="margin-top:10px">
+                    <h4>{{trackInfos['name']}}</h4>
+                    <p style="margin-top:-9px">{{trackInfos['artists'][0]['name']}}</p>
+                </div>
+                <div class="col-5 my-4" style="padding-top:15px">
+                {% if trackInfos["preview_url"] != null %}
+                    <a id="previewPlayButton" class="mx-2" style="cursor:pointer;font-size:38px;text-decoration:none;display:inline-block" onclick="playPreviewTrack('{{trackInfos["preview_url"]}}',this)">🎵</a>
+                {% else %}
+                    <a id="previewPlayButton" class="mx-2" style="cursor:not-allowed;font-size:38px;text-decoration:none;display:inline-block">❌</a>
+                {% endif %}
+                    <a id="collectionButton" class="mx-2" style="cursor:pointer;font-size:38px;text-decoration:none;display:inline-block" onclick="console.log('add to my collection');">👀</a>
+                    <a id="postButton" class="mx-2" style="cursor:pointer;font-size:38px;text-decoration:none;display:inline-block" onclick="postSong('{{trackInfos["id"]}}',this)">📝</a>
+                    <a id="spotifyRedirectButton" class="mx-2" style="cursor:pointer;font-size:38px;text-decoration:none;display:inline-block" href="https://open.spotify.com/track/{{trackInfos["id"]}}" target="_blank"><img style="padding-bottom:10px" width="38px" src="{{asset('css/spotify.png')}}"/></a>
+                </div>
+            </userPost>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}

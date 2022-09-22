@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}❌ error! ❌ - listen 🔊{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-7 container">
+            <h1>Woupelaille... 😬</h1>
+            <h3>Quelque chose est arriver et c'était pas supposer arriver..</h3>
+            <p><i>Se déconnecter et se reconnecter <b>DEVRAIT</b> arranger les choses!</i></p>
+            <center><a href="{{path("disconnect")}}" style="text-align:center;font-size:20px">Disconnect 🚪</a></center>
+        </div>
+    </div>
+</div>
+{% endblock %}

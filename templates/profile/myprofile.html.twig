@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}my profile - listen 🔊{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row m-3">
+            <img id="user_image_profile" class="col-1" src="{{userInfos["images"][0]["url"]}}"/>
+            <div class="col-7">
+                <h1 id="username">{{userInfos["display_name"]}}</h1>
+                <h4 id="user_id" style="margin-top:-10px;color:LightSlateGray;font-style:italic">@{{userInfos["id"]}}</h4>
+            </div>
+            <div class="col-3" style="text-align:right">
+                <a href="{{path("main")}}" class="btn btn-info">Back to feed</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <h2>User's top tracks</h2>
+                {% set song = userSongs["items"][0] %}
+                {% for track in userSongs["items"] %}
+                <div class="row my-3">
+                    <img id="playlist_image" class="col-1" src="{{track["album"]["images"][0]["url"]}}">
+                    <div class="col-5 p-2">
+                        <h3>{{track["name"]}}</h3>
+                        <p style="margin-top:-12px;font-size:18px">{{track["artists"][0]["name"]}}</p>
+                        {# <p style="margin-top:-8px;font-size:20px"><b><i>{{track["tracks"]["total"]}} tracks</i></b></p> #}
+                        {# {{dump(track)}} #}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-3">
+            <h2>User's friends</h2>
+            </div>
+        </div>
+    </div>
+{% endblock %}

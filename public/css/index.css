@@ -1,0 +1,51 @@
+#user_image_profile {
+    width: 150px;
+    height: auto;
+}
+
+#playlist_image{
+    width: 170px;
+    height: auto;
+}
+
+userPost{
+    border-radius: 4px;
+    border-style: solid;
+    border-color: white;
+    box-shadow: 4px 4px 5px 3px rgba(0,0,0,0.2);
+    width: 650px;
+    height: auto;
+    padding:12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Animations */
+
+.a_float {
+    animation-name: floating;
+    animation-duration: 2.7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 7px); }
+    100%   { transform: translate(0, 0px); }   
+}
+
+.a_simplebounce {
+    animation-name: bounce;
+    animation-duration: 0.6s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0,.55,.39,1);
+}
+
+@keyframes bounce {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, -10px); }
+    100%   { transform: translate(0, 0px); }   
+}
